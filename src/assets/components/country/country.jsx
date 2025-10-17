@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import './country.css'
 
-const Country = ({country,handalVisitedCountres}) => {
-    const [Visited ,setVisited] = useState(false)
+const Country = ({ country, handalVisitedCountres, handalVisitedFlag }) => {
+    const [Visited, setVisited] = useState(false)
     // console.log(country.area.area)
 
-    const halndleClicked =() =>{
+    const halndleClicked = () => {
         // basyic syste 
         // if(Visited){
         //     setVisited(false)
@@ -26,8 +26,9 @@ const Country = ({country,handalVisitedCountres}) => {
             <img src={country.flags.flags.png} alt={country.flags.flags.alt} />
             <h2>Name : {country.name.common}</h2>
             <h2>Population : {country.population.population}</h2>
-            <p>Area : {country.area.area} {country.area.area > 300000 ? "Big Country" :"Small Country"}</p>
+            <p>Area : {country.area.area} {country.area.area > 300000 ? "Big Country" : "Small Country"}</p>
             <button onClick={halndleClicked}>{Visited ? "Visited" : "Not Visited"}</button>
+            <button onClick={() => {handalVisitedFlag(country.flags.flags.png)}}>Add Visited</button>
         </div>
     );
 };
